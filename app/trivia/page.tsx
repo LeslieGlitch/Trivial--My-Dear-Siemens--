@@ -1,108 +1,55 @@
 "use client";
 
-import React from "react";
-import { DefaultPageLayout } from "@/subframe/layouts/DefaultPageLayout";
-import { Stepper } from "@/subframe/components/Stepper";
-import { Button } from "@/subframe/components/Button";
-import { Progress } from "@/subframe/components/Progress";
+import React, { useState } from "react";
 
-function CardFormWizard() {
+const [progress, setProgress] = useState(0);
+const [strikes, setStrikes] = useState(0);
+const [hasDatabase, setHasDatabase] = useState(0);
+
+export default function Trivia() {
+
+  if (hasDatabase == 0) {
+    
+  }
+
+  // return
   return (
-    <DefaultPageLayout>
-      <div className="container max-w-none flex h-full w-full flex-col items-center gap-4 bg-default-background py-12">
-        <div className="flex w-full max-w-[576px] flex-col items-start gap-8">
-          <div className="flex w-full flex-col items-center">
-            <span className="text-heading-2 font-heading-2 text-default-font">
-              Trivial, My Dear Siemens!
-            </span>
-            <span className="text-body font-body text-subtext-color">
-              A small trivia game using OpenTriviaDB
-            </span>
-          </div>
-          <Stepper>
-            <Stepper.Step
-              variant="active"
-              firstStep={true}
-              stepNumber="1"
-              label="Question 1"
-            />
-            <Stepper.Step variant="default" stepNumber="2" label="Question 2" />
-            <Stepper.Step variant="default" stepNumber="3" label="Question 3" />
-            <Stepper.Step variant="default" stepNumber="4" label="Question 4" />
-            <Stepper.Step lastStep={true} stepNumber="5" label="Question 5" />
-          </Stepper>
-          <div className="flex w-full flex-col items-center gap-2 px-1 py-1">
-            <span className="text-heading-2 font-heading-2 text-default-font">
-              Question #
-            </span>
-            <span className="text-heading-1 font-heading-1 text-default-font">
-              What is the answer to this question?
-            </span>
-          </div>
-          <div className="flex w-full flex-col items-start gap-2 px-1 py-1">
-            <div className="flex w-full items-center justify-center gap-2 px-1 py-1">
-              <Button
-                className="h-auto grow shrink-0 basis-0 self-stretch"
-                disabled={false}
-                variant="brand-primary"
-                size="medium"
-                icon={null}
-                iconRight={null}
-                loading={false}
-                onClick={(event: React.MouseEvent<HTMLButtonElement>) => {}}
-              >
-                Answer
-              </Button>
-              <Button
-                className="h-auto min-h-[64px] grow shrink-0 basis-0 self-stretch"
-                disabled={false}
-                variant="brand-primary"
-                size="medium"
-                icon={null}
-                iconRight={null}
-                loading={false}
-                onClick={(event: React.MouseEvent<HTMLButtonElement>) => {}}
-              >
-                Answer
-              </Button>
-            </div>
-            <div className="flex w-full items-center justify-center gap-2 px-1 py-1">
-              <Button
-                className="h-auto grow shrink-0 basis-0 self-stretch"
-                disabled={false}
-                variant="brand-primary"
-                size="medium"
-                icon={null}
-                iconRight={null}
-                loading={false}
-                onClick={(event: React.MouseEvent<HTMLButtonElement>) => {}}
-              >
-                Answer
-              </Button>
-              <Button
-                className="h-auto min-h-[64px] grow shrink-0 basis-0 self-stretch"
-                disabled={false}
-                variant="brand-primary"
-                size="medium"
-                icon={null}
-                iconRight={null}
-                loading={false}
-                onClick={(event: React.MouseEvent<HTMLButtonElement>) => {}}
-              >
-                Answer
-              </Button>
-            </div>
-            <div className="flex w-full flex-col items-center gap-2 px-1 py-1">
-              <Progress value={30} />
-              <span className="text-body font-body text-default-font">
-                Time Remaining
-              </span>
+    <div className="relative flex min-h-screen flex-col justify-center overflow-hidden bg-gray-900 py-6 sm:py-12">
+      <div className="absolute inset-0 bg-[url(/img/grid.svg)] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
+      <div className="relative bg-gray-900 px-6 pb-8 pt-10 shadow-xl ring-1 ring-gray-900/5 sm:mx-auto sm:max-w-lg sm:rounded-lg sm:px-10">
+        <div className="mx-auto max-w-md">
+          <p className="text-3xl text-pink-300">Trivial, My Dear Siemens!!</p>
+          <p className="text-md text-cyan-300">A small trivia game using OpenTriviaDB</p>
+          <div className="divide-x divide-gray-300/50">
+            <div className="divide-y divide-gray-300/50">
+              <div className="space-y-4 py-8 text-base leading-7 text-gray-100">
+                <p>{he.decode(questionItem.question)} &emsp;</p>
+                <ul className="grid">
+                  <button type="button" id="Click" onClick={() => clickAns(answer, correct_ans, params)} className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+                    <p className="ml-4"> {answer} </p>
+                  </button>
+                  <button type="button" id="Click" onClick={() => clickAns(answer, correct_ans, params)} className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+                    <p className="ml-4"> {answer} </p>
+                  </button>
+                  <button type="button" id="Click" onClick={() => clickAns(answer, correct_ans, params)} className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+                    <p className="ml-4"> {answer} </p>
+                  </button>
+                  <button type="button" id="Click" onClick={() => clickAns(answer, correct_ans, params)} className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+                    <p className="ml-4"> {answer} </p>
+                  </button>
+                </ul>
+                <div className="text-black bg-gradient-to-r from-cyan-400 to-green-500 focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+                  <p className="ml-4">
+                    Score: { progress } <br></br>
+                    Strikes: { strikes }
+                  </p>
+                </div>
+                <p className="text-xs">A project by Leslie Wollitz</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </DefaultPageLayout>
+    </div>
   );
 }
-
-export default CardFormWizard;
