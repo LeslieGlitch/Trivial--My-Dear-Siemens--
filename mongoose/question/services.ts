@@ -26,13 +26,13 @@ export async function findByQuestion(
 /// @param paramType Search term
 export async function findByType(
     paramType: string
-): Promise<Array<QuestionInterface> | null> {
+): Promise<QuestionInterface | null> {
     try {
         return await QuestionModel.findOne({ type: paramType });
     } catch (err) {
         console.log(err);
     }
-    return [];
+    return null;
 }
 
 /// @param paramDifficulty Search term
